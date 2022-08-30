@@ -5,14 +5,9 @@ from django import forms
 
 
 class Subject(models.Model):
-    SEMESTER = (
-        (1),
-        (2),
-        (3)
-    )
     code = models.CharField(max_length=3)
     subject_name = models.CharField(max_length=15)
-    semester = models.CharField(choices=SEMESTER)
+    semester = models.CharField(max_length=1)
     academic_year = models.IntegerField()
     amount = models.IntegerField()
     status = models.BooleanField()

@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def index(req):
-    return render(req, "./template/index.html", {
+    return render(req, "index.html", {
 
     })
     # pass

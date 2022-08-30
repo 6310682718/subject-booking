@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,10 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# TEMPLATE_DIRS = (
+#     os.path.join(SETTINGS_PATH, 'templates'),
+# )
 
 # Application definition
 
 INSTALLED_APPS = [
+    "booking_subject",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -50,11 +55,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "basicWeb.urls"
-
+# SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, "booking_subject", 'templates'),
+            os.path.join(BASE_DIR, "users", 'templates')
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -88,9 +97,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
 ]
 
 
