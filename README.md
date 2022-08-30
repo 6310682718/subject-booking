@@ -21,7 +21,7 @@ Commands Django
     Start app : python startapp <app name>
 ```
 ```
-    Credits
+Credits
     Pongsakorn Parsoppornpiboon
     Thanapat 
 ```
